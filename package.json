@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "mocha --growl",
+    "lint": "jshint *.js"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0"
+  }
+}

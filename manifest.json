@@ -1,0 +1,48 @@
+{
+  "name": "sessions-jwt",
+  "description": "JWT-based session storage for Foxx.",
+  "author": "ArangoDB GmbH",
+  "version": "1.0.0",
+  "license": "Apache License, Version 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arangodb/foxx-sessions-jwt.git"
+  },
+  "contributors": [
+    {
+      "name": "Alan Plum",
+      "email": "me@pluma.io"
+    }
+  ],
+
+  "exports": {
+    "sessionStorage": "storage.js"
+  },
+
+  "lib": ".",
+
+  "tests": "test/**",
+
+  "configuration": {
+    "ttlType": {
+      "description": "Timestamp session expiry should be checked against.",
+      "type": "string",
+      "default": "lastAccess"
+    },
+    "timeToLive": {
+      "description": "Session expiry timeout in milliseconds.",
+      "type": "integer",
+      "default": 604800000
+    },
+    "jwtSecret": {
+      "description": "JWT signing secret. Required unless using the 'none' algorithm.",
+      "type": "string",
+      "required": false
+    },
+    "jwtAlgorithm": {
+      "description": "JWT signing algorithm to use, e.g. HS512, HS384, HS256 or 'none'.",
+      "type": "string",
+      "default": "HS512"
+    }
+  }
+}
