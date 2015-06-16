@@ -2,7 +2,7 @@
   "name": "sessions-jwt",
   "description": "JWT-based session storage for Foxx.",
   "author": "ArangoDB GmbH",
-  "version": "1.0.0-dev",
+  "version": "1.0.0",
   "license": "Apache License, Version 2.0",
   "repository": {
     "type": "git",
@@ -14,15 +14,11 @@
       "email": "me@pluma.io"
     }
   ],
-
   "exports": {
     "sessionStorage": "storage.js"
   },
-
   "lib": ".",
-
   "tests": "test/**",
-
   "configuration": {
     "ttlType": {
       "description": "Timestamp session expiry should be checked against.",
