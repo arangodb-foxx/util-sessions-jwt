@@ -19,11 +19,9 @@ const Session = Foxx.Model.extend({
   }
 });
 
-function createSession(sessionData, userData) {
+function createSession(sessionData) {
   let session = new Session({
-    uid: (userData && userData._id) || null,
-    sessionData: sessionData || {},
-    userData: userData || {}
+    sessionData: sessionData || {}
   });
   return session;
 }
