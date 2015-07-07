@@ -2,6 +2,8 @@
 
 The sessions app provides a JWT-based session storage JavaScript API that can be used in other Foxx apps.
 
+[![Build status](https://img.shields.io/travis/arangodb/foxx-sessions-jwt.svg)](https://travis-ci.org/arangodb/foxx-sessions-jwt)
+
 Throughout this document the term "session ID" refers to the JWT representation of a session.
 
 ## Configuration
