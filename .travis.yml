@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+node_js:
+  - 0.12
+env:
+  - ARANGODB_VERSION=2.6
+before_install:
+  - curl https://www.arangodb.com/repositories/travisCI/setup_arangodb_${ARANGODB_VERSION}.sh | bash
+script:
+  - node bin/runTests.js
