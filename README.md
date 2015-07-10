@@ -41,9 +41,13 @@ var controller = new Foxx.Controller(applicationContext);
 var sessionStorage = applicationContext.dependencies.sessions.sessionStorage;
 
 controller.activateSessions({
-  sessionStorage: sessionStorage
+  sessionStorage: sessionStorage,
+  cookie: true,
+  header: true
 });
 ```
+
+The api requires one or both cookie and header to be set to work.
 
 ### Exceptions
 
