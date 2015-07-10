@@ -42,12 +42,9 @@ var sessionStorage = applicationContext.dependencies.sessions.sessionStorage;
 
 controller.activateSessions({
   sessionStorage: sessionStorage,
-  cookie: true,
-  header: true
+  cookie: true
 });
 ```
-
-The api requires one or both cookie and header to be set to work.
 
 ### Exceptions
 
