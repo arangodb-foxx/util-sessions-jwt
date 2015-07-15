@@ -10,12 +10,12 @@ const cfg = applicationContext.configuration;
 
 const Session = Foxx.Model.extend({
   schema: {
-    uid: joi.string().allow(null).required().default(null),
-    sessionData: joi.object().required().default('Empty object', Object),
-    userData: joi.object().required().default('Empty object', Object),
-    created: joi.number().integer().required().default('Current date', Date.now),
-    lastAccess: joi.number().integer().required('Current date', Date.now),
-    lastUpdate: joi.number().integer().required('Current date', Date.now)
+    uid: joi.string().allow(null).default(null),
+    sessionData: joi.object().default('Empty object', Object),
+    userData: joi.object().default('Empty object', Object),
+    created: joi.number().integer().default('Current date', Date.now),
+    lastAccess: joi.number().integer().default('Current date', Date.now),
+    lastUpdate: joi.number().integer().default('Current date', Date.now)
   }
 });
 
