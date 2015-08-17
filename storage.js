@@ -1,6 +1,5 @@
 /*global require, exports, applicationContext */
 'use strict';
-
 const _ = require('underscore');
 const joi = require('joi');
 const crypto = require('org/arangodb/crypto');
@@ -11,11 +10,11 @@ const cfg = applicationContext.configuration;
 const Session = Foxx.Model.extend({
   schema: {
     uid: joi.string().allow(null).default(null),
-    sessionData: joi.object().default('Empty object', Object),
-    userData: joi.object().default('Empty object', Object),
-    created: joi.number().integer().default('Current date', Date.now),
-    lastAccess: joi.number().integer().default('Current date', Date.now),
-    lastUpdate: joi.number().integer().default('Current date', Date.now)
+    sessionData: joi.object().default(Object, 'Empty object'),
+    userData: joi.object().default(Object, 'Empty object'),
+    created: joi.number().integer().default(Date.now, 'Current date'),
+    lastAccess: joi.number().integer().default(Date.now, 'Current date'),
+    lastUpdate: joi.number().integer().default(Date.now, 'Current date')
   }
 });
 
@@ -60,7 +59,8 @@ _.extend(Session.prototype, {
       lmat: this.get('lastUpdate'),
       iat: this.get('created')
     };
-    const sid = crypto.jwtEncode(cfg.jwtAlgorithm === 'none' ? null : cfg.jwtSecret, data, cfg.jwtAlgorithm);
+    const secret = cfg.jwtAlgorithm === 'none' ? null : cfg.jwtSecret;
+    const sid = crypto.jwtEncode(secret, data, cfg.jwtAlgorithm);
     return sid;
   },
   enforceTimeout: function () {
